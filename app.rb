@@ -1,9 +1,10 @@
-#encoding: utf-cp866
+#encoding: cp866
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sqlite3'
 
-set :database "sqlite3:food.db"
+set :database,'sqlite3:food.db'
 
 class Food < ActiveRecord::Base
 end
