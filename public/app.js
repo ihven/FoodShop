@@ -5,5 +5,6 @@ function something()
 	window.localStorage.setItem('abc', a);
 	
 	alert(a);
+	window.localStorage.clear();
 	
 }

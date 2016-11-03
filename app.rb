@@ -17,6 +17,13 @@ get '/something' do
   erb:something
 end
 
-get '/contacts' do
-   erb:contact
+get '/shop' do
+   @foods = Food.all
+   erb:shoping
+end
+
+get '/:id' do
+  id = params[:id]
+  
+  erb:food
 end

@@ -1,0 +1,14 @@
+<table border="1" style="table-layout: auto">
+   
+   <div class="row"> 
+     <%@foods.each do|food|%>
+	    <div class="col-lg-2">    
+		<p align="center"><a href="/<%=food.id%>" style="color:darkblue; font-weight:900"><%=food.title%></a></p></br>	  	
+		<img src=<%=food.path_to_image%> align="center" width="100%" height="100%" ismap></img>
+		<p align="center" style="color:black; font-weight:700">price: <%=food.price%></p>
+		<p align="center" style="color:black; font-weight:700"><%=food.description%></p>
+		<p align="center" style="color:black; font-weight:700"><%=food.country%></p>
+		</div>	 
+    <%end%>
+ 
+</table>
