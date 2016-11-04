@@ -1,1 +1,23 @@
-<h4>commodity</h4>
+<h4 style="color:darkblue; font-weight:750">commodity:</h4>
+
+
+ 
+  <div class="row">
+    <div class="col-lg-6">
+	  <p align="left" style="color:black; font-weight:700"><%=@choice.title%></p>
+	  <p align="left" style="color:black; font-weight:700"><%=@choice.description%></p>
+      <p align="left" style="color:black; font-weight:700"><%=@choice.price%> UAH</p>
+      <p align="left" style="color:black; font-weight:700">Made in <%=@choice.country%></p>
+      <p align="left" style="color:black; font-weight:700">Arrival at:<%=@choice.arrival%></p>
+	  
+	  <form name="quantity" action = "/shop" method = "POST" role = "form">
+		<p align="left" style="color:black; font-weight:700">How many:</p>
+		<input name = "numb" placeholder = "quantity" style = "border-color:darkblue">
+	  
+	  </form></br>
+	  <button class = "btn btn-primary btn-sm" onclick = "add_to_cart(<%=@choice.id%>)">Add to cart</button>
+	</div>
+  </div>
+  
+
+ 

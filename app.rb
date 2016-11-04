@@ -24,6 +24,6 @@ end
 
 get '/:id' do
   id = params[:id]
-  
+  @choice = Food.find(params[:id])
   erb:food
 end
