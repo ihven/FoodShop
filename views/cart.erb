@@ -1,0 +1,22 @@
+<h3 style="color:darkblue">It's cart of foodshop!</h3>
+
+<div>   
+   
+   <button class="btn btn-danger btn-sm" onclick = "cart_get_orders()">Get data from cart !</button>
+   <button class="btn btn-danger btn-sm" onclick = "clear_cart()">Clear cart !</button></br>
+   </br>
+  
+	 <form action = "/cart" method = "POST" role = "form">
+	    <p align="left" style="color:darkblue; font-weight:700; font-size:110%"><%=@str%></p>
+        <p align="left" style="color:darkblue; font-weight:700; font-size:125%"><%=@str_total%></p>	
+        <p><%=@link%></p>
+	
+		<input name = "send" value="" type = "text" style = "align:center; width:100px; color:red; font-weight:700; background-color:white; border-color:white" id="sendid"></input>
+		<input name = "orders_id" value="" type = "submit" style = "color:black; font-weight:700; background-color:white; border-color:white" id="ordersid"></input>
+ 	</form>
+	
+  </div>
+  <form action = '/cart/order_cart' method = "POST" role = "form">
+ 	
+ 
+ 

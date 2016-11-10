@@ -10,14 +10,14 @@
       <p align="left" style="color:black; font-weight:700">Made in <%=@choice.country%></p>
       <p align="left" style="color:black; font-weight:700">Arrival at:<%=@choice.arrival%></p>
 	  
-	  <form name="quantity" action = "/shop" method = "POST" role = "form">
+	  <form name="quantity"  role = "form">
 		<p align="left" style="color:black; font-weight:700">How many:</p>
 		<input name = "numb" placeholder = "quantity" style = "border-color:darkblue">
-	  
+	    
 	  </form></br>
-	  <button class = "btn btn-primary btn-sm" onclick = "add_to_cart(<%=@choice.id%>)">Add to cart</button>
+	  <a href = '/shop'  class = "btn btn-primary btn-sm" onclick = "add_to_cart(<%=@choice.id%>)">Add to cart</a>
+	  
 	</div>
   </div>
   
-
  
