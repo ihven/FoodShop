@@ -1,0 +1,28 @@
+<table class="table table-striped">
+ <th>Name</th>
+ <th>Adress</th> 
+ <th>Phone</th>  
+ <th>Purchased</th> 
+ <th>Total price</th> 
+ <th>Date Time</th>
+ 
+ 
+ </tr> 
+ </thead> 
+ 
+ 
+	
+ <tbody>
+  <%@cart_all.each do |every|%>
+	<tr> 
+	<td><%=every.name%></td>
+	<td><%=every.adress%></td> 
+	<td><%=every.phone%></td>
+	<td><%=every.purchased%></td> 
+	<td><%=every.total_price%></td> 
+	<td><%=every.day_time%></td>
+	</tr>
+   <%end%> 
+ </tbody>
+ 
+</table>

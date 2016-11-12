@@ -3,9 +3,9 @@
     <script type="text/javascript">		
 			$(':button').click(function(){			
 			if(document.myform.orders_id.value.length > 1) {
-				 $("#buttonid").val('Click me!');
+				 $("#buttonid").val(' CLICK ME ! ');
 				 } else {
-				 $("#buttonid").val('EMPTY CART!');
+				 $("#buttonid").val('EMPTY CART ! GO TO SHOP !');
 				 }			
 			}); 
 	</script>
@@ -15,6 +15,6 @@
     <form name = "myform" action = "/cart/ordercart" method = "POST" role = "form">	
 		<input name = "orders_id" style = "color:maroon; font-weight:700; background-color:white; border-color:white" id = "ordersid"></></br>
 	    </br>
-		<input name = "submitid" type = "submit" class = "btn btn-danger btn-sm" value = "" id = "buttonid"></button>'
+		<input name = "submitid" type = "submit" class = "btn btn-danger" value = "" id = "buttonid"></button>'
 	</form>	
 	</div>

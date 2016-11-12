@@ -12,8 +12,10 @@ end
 class Cart < ActiveRecord::Base
 end
 
-
-get '/' do
+before do
+   @cart_all = Cart.all
+ end
+get '/' do	
 	erb '<p align="left" style="color:darkblue; font-weight:700; font-size:150%">Hello! Welcome to foodshop.</p>'		
 end
 
@@ -34,6 +36,10 @@ end
       
 get '/cart/ordercart' do
   erb:ordercart
+end
+
+get '/cart/list' do
+    erb:list
 end
 
 post '/cart/ordercart' do
