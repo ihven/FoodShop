@@ -1,21 +1,19 @@
-
-
-<form action = '/cart/order_cart' method = "POST" role = "form">
- 	
- <div class="form-group">
-  <label  style="color:red; font-weight:700; font-size:100%">Enter your full name:</lavel><br/>
-	<input name = "name"  placeholder = "Enter your full name" style="border-color:white; width:300px" required><br/> 
-  </div>
- <br/> 
- <div class="form-group">
- <label style="color:red; font-weight:700; font-size:100%">Enter your full adress:</lavel><br/>
-	<input name = "adress"  placeholder = "Enter your full adress" style="border-color:white; width:300px" required><br/> 
-   </div>
- <br/> 
- <div class="form-group">
- <label  style="color:red; font-weight:700; font-size:100%">Enter your phone:</lavel><br/>
-	<input name = "phone" placeholder = "Enter your phone" style="border-color:white; width:300px" required><br/> 
- </div>
- 	
- <button type ="submit" class = "btn btn-danger btn-sm">Save to database</button>
- </form>
+   <div>
+   <input type = "button" class="btn btn-danger btn-sm" value = "Get data from cart !" onclick = "cart_get_orders()"></button>
+    <script type="text/javascript">		
+			$(':button').click(function(){			
+			if(document.myform.orders_id.value.length > 1) {
+				 $("#buttonid").val('Click me!');} else {
+				 $("#buttonid").val('EMPTY CART!');
+				 }			
+			}); 
+	</script>
+   
+   <a href = '/shop' class="btn btn-danger btn-sm" onclick = "clear_cart()">Clear cart !</a></br>
+   </br>
+    <form name = "myform" action = "/cart/ordercart" method = "POST" role = "form">	
+		<input name = "orders_id" style = "color:maroon; font-weight:700; background-color:white; border-color:white" id = "ordersid"></></br>
+	    </br>
+		<input name = "submitid" type = "submit" class = "btn btn-danger btn-sm" value = "" id = "buttonid"></button>'
+	</form>	
+	</div>

@@ -31,43 +31,56 @@ get '/:id' do
   @choice = Food.find(params[:id])
   erb:food
 end
-
-get '/cart/order_cart' do
-     erb:ordercart
+      
+get '/cart/ordercart' do
+  erb:ordercart
 end
 
-post '/cart' do	    
-		orders = params[:orders_id]       
+post '/cart/ordercart' do
+            orders = params[:orders_id]       
 	 
 	   		arr = orders.split(",")
 			hh = from_arr(arr)
 			
 			find_food =""		    
-			total_sum = 0			
+			@total_sum = 0			
 			@link = ""
 			@str = ""
-			@str_total = ""	
-			
+					
 			hh.each_with_index do |val, id|
 				find_food = Food.find(val[0])
 				total = val[1] * find_food.price
-				total_sum += total;
-				@str = @str + "commodity: #{find_food.title} " +"quantity:    #{val[1]}    " + "  total: #{total} UAH" + "<br/>"
+				@total_sum += total;
+				@str = @str + "commodity: #{find_food.title} " +"quantity:    #{val[1]}    " + "  total: #{total} UAH" + "\n"
 			end
-             
-    	  
-			
-	    	if(total_sum > 0)
-			   @str_total = "The final cost of your purchase: #{total_sum} UAH"
-               @link = "<a href = '/cart/order_cart' style='color:red; font-weight:700; font-size:150%'>Next step for write</a>"
-	           @val_sum = total_sum		
-			end
-		    
-			@cart = Cart.new(:purchased => @str, :total_price => total_sum, :day_time => DateTime.current)
-			@cart.save
-			
+			if(@total_sum > 0)
+			   		
+			   @link = '<form action = "/cart" method = "POST" role = "form">
+				<div class="form-group">
+				<label  style="color:darkblue; font-weight:700; font-size:100%">Enter your full name:</lavel><br/>
+				<input name = "cart[name]"  placeholder = "Enter your full name" style="border-color:white; width:300px" required><br/> 
+				</div><br/> 
+				<div class="form-group">
+				<label style="color:darkblue; font-weight:700; font-size:100%">Enter your full adress:</lavel><br/>
+				<input name = "cart[adress]"  placeholder = "Enter your full adress" style="border-color:white; width:300px" required><br/> 
+				</div><br/> 
+				<div class="form-group">
+				<label  style="color:darkblue; font-weight:700; font-size:100%">Enter your phone:</lavel><br/>
+				<input name = "cart[phone]" placeholder = "Enter your phone" style="border-color:white; width:300px" required><br/> 
+				</div> 
+				<button type ="submit" class = "btn btn-danger btn-sm" onclick = "clear_cart()">Save to database</button>
+				</form>'
+	          end
+			  
             erb:cart
- end
+end	
+
+post '/cart' do
+      cart = Cart.new(params[:cart])
+	  cart.day_time = DateTime.current
+	  cart.save
+	  redirect to '/'
+end  
 
 
     def from_arr arr
@@ -79,12 +92,3 @@ post '/cart' do
 	   return hh
     end	
 	
-post '/cart/order_cart' do
-     @carts = Cart.find_by name: nil
-	 @carts.name = params[:name]
-	 @carts.adress = params[:adress]
-	 @carts.phone = params[:phone]
-	 @carts.save
-     redirect to "/shop"
-
-end	
