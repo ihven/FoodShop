@@ -1,5 +1,5 @@
    <div>
-   <input type = "button" class="btn btn-danger" value = "GET DATA FROM CART!" onclick = "cart_get_orders()"></button>
+   <input type = "button" class="btn btn-danger" value = "GET DATA FROM CART!" onclick = "cart_get_orders()"></button></br>
     <script type="text/javascript">		
 			$(':button').click(function(){			
 			if(document.myform.orders_id.value.length > 1) {
@@ -10,7 +10,6 @@
 			}); 
 	</script>
    
-   <a href = '/shop' class="btn btn-danger" onclick = "clear_cart()">CLEAR CART!</a></br>
    </br>
     <form name = "myform" action = "/cart/ordercart" method = "POST" role = "form">	
 		<input name = "orders_id" style = "color:white; font-weight:700; background-color:white; border-color:white" id = "ordersid"></></br>

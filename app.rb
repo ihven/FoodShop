@@ -74,7 +74,7 @@ post '/cart/ordercart' do
 				<label  style="color:darkblue; font-weight:700; font-size:100%">Enter your phone:</lavel><br/>
 				<input name = "cart[phone]" placeholder = "Enter your phone" style="border-color:white; width:300px" required><br/> 
 				</div> 
-				<button type ="submit" class = "btn btn-danger" onclick = "clear_cart()">SAVE TO DATABASE</button>
+				<button type ="submit" class = "btn btn-primary" onclick = "clear_cart()">SAVE TO DATABASE</button>
 	
 				</form>'
 	          end
