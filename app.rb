@@ -14,7 +14,7 @@ end
 
 before do
    @cart_all = Cart.all
- end
+end
 get '/' do	
 	erb '<p align="left" style="color:darkblue; font-weight:700; font-size:150%">Hello! Welcome to foodshop.</p>'		
 end
@@ -74,7 +74,8 @@ post '/cart/ordercart' do
 				<label  style="color:darkblue; font-weight:700; font-size:100%">Enter your phone:</lavel><br/>
 				<input name = "cart[phone]" placeholder = "Enter your phone" style="border-color:white; width:300px" required><br/> 
 				</div> 
-				<button type ="submit" class = "btn btn-danger btn-sm" onclick = "clear_cart()">Save to database</button>
+				<button type ="submit" class = "btn btn-danger" onclick = "clear_cart()">SAVE TO DATABASE</button>
+	
 				</form>'
 	          end
 			  
@@ -84,8 +85,15 @@ end
 post '/cart' do
       cart = Cart.new(params[:cart])
 	  cart.day_time = DateTime.current
-	  cart.save
-	  redirect to '/'
+	  
+	  
+	  if(cart.save)
+	    @message = "Dear, #{cart.name}!  Thank you, your order has been placed."
+		erb '<p align="left" style="color:maroon; font-weight:700; font-size:125%"><%=@message%></p>'
+	  else
+	    redirect to '/'
+	  end	
+	  
 end  
 
 
