@@ -48,3 +48,4 @@ function get_from_cart(id)
 		}
 	}
 }
+

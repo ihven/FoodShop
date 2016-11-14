@@ -1,12 +1,14 @@
    <div>
-   <input type = "button" class="btn btn-danger" value = "GET DATA FROM CART!" onclick = "cart_get_orders()"></button></br>
+   <input type = "button" class="btn btn-danger btn-lg" value = "GET DATA FROM CART !" onclick = "cart_get_orders()"></button></br>
     <script type="text/javascript">		
 			$(':button').click(function(){			
 			if(document.myform.orders_id.value.length > 1) {
-				 $("#buttonid").val(' CLICK ME ! ');
-				 } else {
-				 $("#buttonid").val('EMPTY CART ! GO TO SHOP !');
-				 }			
+				 $("#buttonid").val('      CLICK ME !        ');
+		    } else {
+				 $("#buttonid").val('EMPTY CART ! GO TO SHOP !'); 
+	               setTimeout(function() {document.location.href ='/shop'}, 3000);
+				   
+     			 }			
 			}); 
 	</script>
    
@@ -14,6 +16,6 @@
     <form name = "myform" action = "/cart/ordercart" method = "POST" role = "form">	
 		<input name = "orders_id" style = "color:white; font-weight:700; background-color:white; border-color:white" id = "ordersid"></></br>
 	    </br>
-		<input name = "submitid" type = "submit" class = "btn btn-danger" value = "" id = "buttonid"></button>'
-	</form>	
+		<input name = "submitid" type = "submit" class = "btn btn-danger btn-lg" value = "" id = "buttonid"></button>'
+	  </form>	
 	</div>
