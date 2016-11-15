@@ -13,7 +13,7 @@ class Cart < ActiveRecord::Base
 end
 
 before do
-   @cart_all = Cart.all
+   @cart_all = Cart.order(day_time: :desc)
 end
 get '/' do	
 	erb '<p align="left" style="color:darkblue; font-weight:700; font-size:150%">Hello! Welcome to foodshop.</p>'		
